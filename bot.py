@@ -171,8 +171,11 @@ async def bilhete(interaction: discord.Interaction, tom: str | None = None):
     msg = pick_by_tone(BILHETES_ENGRACADOS, BILHETES_SOMBRIOS, BILHETES_ROMANTICOS, tom)
     await interaction.response.send_message(msg)
 
-
 if __name__ == "__main__":
     if not TOKEN:
-        raise RuntimeError("❌ DISCORD_TOKEN não encontrado no .env")
+        raise RuntimeError(
+            "❌ DISCORD_TOKEN não encontrado. "
+            "No Railway, configure a variável DISCORD_TOKEN em Variables. "
+            "No PC, coloque no arquivo .env."
+        )
     bot.run(TOKEN)
